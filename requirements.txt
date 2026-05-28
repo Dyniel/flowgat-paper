@@ -1,0 +1,10 @@
+# Minimal pip requirements (frozen versions match conda env py312)
+torch==2.7.1+cu118
+torch-geometric>=2.5
+numpy>=1.26
+scipy>=1.13
+pandas>=2.2
+matplotlib>=3.8
+pyyaml>=6.0
+tqdm>=4.66
+wandb>=0.16

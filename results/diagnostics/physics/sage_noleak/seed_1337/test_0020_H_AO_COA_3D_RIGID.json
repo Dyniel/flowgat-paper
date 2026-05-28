@@ -1,0 +1,22 @@
+{
+  "n_nodes": 322504,
+  "n_moving": 207177,
+  "angle_median": 47.57136535644531,
+  "angle_mean": 49.16357421875,
+  "angle_p90": 91.66304016113281,
+  "spearman_true_mag_radius": 0.35717064087089784,
+  "spearman_pred_mag_radius": 0.17094893750109721,
+  "mag_ratio_median": 0.5004890561103821,
+  "mag_ratio_p90": 1.0206984281539917,
+  "div_true_median": 0.0008495232323184609,
+  "div_true_mean": 0.00189350510481745,
+  "div_pred_median": 0.00039946180186234415,
+  "div_pred_mean": 0.0013696212554350495,
+  "umean": 0.41089072823524475,
+  "wall_frac": 0.19699600625108526,
+  "mesh_L": 0.0002076576179970371,
+  "case": "0020_H_AO_COA_3D_RIGID",
+  "variant": "sage_noleak",
+  "seed": 1337,
+  "split": "test"
+}

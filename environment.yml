@@ -1,0 +1,32 @@
+# Minimal conda environment for the flowgat-paper publication repo.
+# Created 2026-05-22 (cleaned from a working cluster env).
+#
+# The verbatim lockfile that produced every result in this repository is
+# preserved at environment.lock.yml; consult that file if you need a
+# byte-exact reproduction (the lockfile pins CUDA 11.8 + torch 2.7.1 on
+# Python 3.12.13 in a /users/scratch1/... prefix). The minimal spec below
+# works for any modern Linux + recent CUDA toolchain.
+name: flowgat-paper
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pytorch=2.7.*
+  - pytorch-cuda=11.8           # adjust to 12.1 if your driver requires
+  - numpy>=1.26
+  - scipy>=1.13
+  - pandas>=2.2
+  - matplotlib>=3.8
+  - pyyaml>=6.0
+  - tqdm>=4.66
+  - pip:
+      - torch-geometric>=2.5
+      - pyvista>=0.43
+      - vtk>=9.3
+      - trimesh>=4.0
+      - scikit-image>=0.22
+      - wandb>=0.16              # optional, only used by jobs/01_train_seed.sh

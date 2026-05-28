@@ -1,0 +1,76 @@
+# =============================================================================
+# Excludes for the flowgat_paper publication repository.
+# All "large" or "derivable" artefacts live on Zenodo, not in git.
+# =============================================================================
+
+# --- Trained model artefacts (Zenodo deposit) -------------------------------
+results/checkpoints/
+results/predictions/
+**/best.pt
+**/*.ckpt
+
+# --- Raw and processed datasets (derivable from public sources) -------------
+/data/
+**/npz_*/
+**/*.npz
+**/*.vtk
+**/*.vtu
+**/*.h5
+**/*.hdf5
+
+# --- Local environments / caches --------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+env_local/
+.venv/
+venv/
+
+# --- Cluster / runtime artefacts --------------------------------------------
+logs/
+wandb/
+slurm-*.out
+*.err
+*.log
+tea_debug.log
+
+# --- Editor / OS noise ------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- LaTeX intermediate -----------------------------------------------------
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lot
+*.lof
+*.bcf
+*.run.xml
+paper/main.pdf
+paper/cover_letter.pdf
+
+# --- Old build snapshots ----------------------------------------------------
+submission/
+submission.zip
+flowgat_paper_local_*.zip
+*.tar.gz
+
+# --- Per-paper "do not commit" --------------------------------------------
+.draft/
+.scratch/
+TODO.local.md
+NOTES.local.md

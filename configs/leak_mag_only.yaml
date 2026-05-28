@@ -1,0 +1,108 @@
+# =========================================================================
+# LEAK_MAG_ONLY variant — only MAGNITUDE leakage:
+#   x[:,3:6] = global PCA tangent (GEOMETRY — same as noleak)
+#   x[:,8]   = u_mean/u_char       (LEAKED — same as withleak)
+#
+# Tests "is magnitude leakage alone responsible for withleak's PP@10 win?".
+# All other fields IDENTICAL to withleak/noleak -> controlled ablation.
+# =========================================================================
+
+logging:
+  project: gnn-aorta-physics
+  run_name: flowgat_paper_leak_mag_only
+  wandb_dir: /users/scratch1/dancies/flowgat_paper/logs
+
+data:
+  train_dir:  /users/scratch1/dancies/flowgat_paper/data/npz_leak_mag_only
+  val_dir:    /users/scratch1/dancies/flowgat_paper/data/npz_leak_mag_only
+  test_dir:   /users/scratch1/dancies/flowgat_paper/data/npz_leak_mag_only
+  split_file: /users/scratch1/dancies/flowgat_paper/data/npz_leak_mag_only/split.json
+  split_seed: 22
+  sample_nodes: 80000
+  importance_beta: 2.0
+  subgraph_mode: knn
+  use_case_scales: true
+  u_char:       1.0
+  length_char:  0.025
+  nu:           3.3e-6
+  rho:          1060.0
+
+model:
+  node_in: null
+  edge_in: null
+  hidden: 128
+  heads: 4
+  layers: 8
+  dropout: 0.05
+  attn_bias_beta: 1.5
+  equivariant_head: false
+  equivariant_basis: 8
+  hard_no_slip: true
+  out: 3
+
+loss:
+  lambda_data: 1.0
+  lambda_mag:  0.0
+  hv:
+    p: 2.5
+    min_weight: 0.01
+    max_weight: 5.0
+    near_wall_boost: 1.0
+    rel_tol: 0.10
+  he_percentile: 0.80
+  focal:
+    enabled: false
+    gamma:   1.5
+    tau:     0.10
+    warmup_epochs: 50
+  pair:
+    lambda: 0.0
+    max_edges: 0
+  physics:
+    lambda_div:  0.0
+    lambda_mom:  0.0
+    lambda_wall: 0.0
+    warmup_epochs: 100
+    eps_reg: 1.0e-4
+
+training:
+  seed: 1337
+  deterministic: false
+  tf32: true
+  epochs: 1500
+  batch_size: 1
+  grad_accum_steps: 0
+  num_workers: 4
+  amp: true
+  lr: 1.0e-4
+  lr_min: 1.0e-6
+  weight_decay: 1.0e-4
+  max_grad_norm: 1.0
+  cosine_t_max: 1500
+  ckpt_dir: /users/scratch1/dancies/flowgat_paper/results/checkpoints/leak_mag_only
+  save_every: 50
+  keep_last: 2
+  resume: false
+  max_nodes: 620000
+  max_edges: 8400000
+
+augment:
+  enabled: true
+  rotate_so3: false
+  feature_noise_std: 0.003
+  edge_dropout_p: 0.02
+
+eval:
+  every: 10
+  full_every: 100
+  max_batches: 8
+  strict_tols: [0.10, 0.05, 0.02, 0.01]
+  auc_range:   [0.0, 0.10]
+  rel_thresholds: [1.0, 0.4, 0.2, 0.1, 0.05]
+  hitk_ratio: 0.20
+  compute_wss: true
+  mu_blood: 3.5e-3
+
+goals:
+  target_recall_he: 0.95
+  patience: 60

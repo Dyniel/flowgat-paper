@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, the audit pipeline, or the released
+  diagnostics, please cite the underlying paper and this software
+  release.
+title: >-
+  Direction is geometric, magnitude is not, and Bernoulli pressure
+  drop alone deceives: a four-variant clinical-quantity audit of
+  graph neural network surrogates for vascular blood flow
+authors:
+  - given-names: A. Daniel
+    family-names: Cieslak
+    email: cieslak.a.daniel@gmail.com
+    affiliation: "[Affiliation placeholder — update before submission]"
+abstract: >-
+  Patient-specific simulation of cardiovascular blood flow is
+  computationally expensive, motivating graph neural network (GNN)
+  surrogates that report near-CFD accuracy on aggregate metrics. We
+  perform a four-variant feature-leakage audit across four flow
+  domains (VMR aortas, Womersley pipe, Cosserat curved-tube sweep,
+  synthetic U-bend CFD; ≈200 model–data combinations) and identify
+  (i) an identifiability asymmetry — direction is geometric,
+  magnitude requires boundary information — that recurs in every
+  domain and (ii) a deceptive simplified-Bernoulli pressure-drop
+  metric that prefers a magnitude-collapsed predictor whose per-frame
+  correlation with ground truth is statistically zero. We propose a
+  clinical-triplet reporting standard (pressure drop, wall shear
+  stress, peak velocity localisation) and release the full audit
+  pipeline.
+license: MIT
+type: software
+repository-code: "https://github.com/<TBD>/flowgat-paper"
+# Zenodo DOI to be inserted after deposit:
+# doi: 10.5281/zenodo.XXXXXXX
+keywords:
+  - graph neural networks
+  - cardiovascular hemodynamics
+  - computational fluid dynamics
+  - identifiability
+  - feature leakage
+  - clinical evaluation
+  - reproducibility
+preferred-citation:
+  type: article
+  title: >-
+    Direction is geometric, magnitude is not, and Bernoulli pressure
+    drop alone deceives: a four-variant clinical-quantity audit of
+    graph neural network surrogates for vascular blood flow
+  authors:
+    - given-names: A. Daniel
+      family-names: Cieslak
+  year: 2026
+  journal: "Scientific Reports"
+  # volume / issue / pages / doi to fill in once accepted

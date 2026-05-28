@@ -1,0 +1,22 @@
+{
+  "n_nodes": 23120,
+  "n_moving": 16720,
+  "angle_median": 7.983180522918701,
+  "angle_mean": 8.397744178771973,
+  "angle_p90": 13.825775146484375,
+  "spearman_true_mag_radius": -0.1273303962968586,
+  "spearman_pred_mag_radius": 0.4923563819523157,
+  "mag_ratio_median": 0.8413556814193726,
+  "mag_ratio_p90": 0.964120090007782,
+  "div_true_median": 2.1341776346162078e-08,
+  "div_true_mean": 0.00012785485887434334,
+  "div_pred_median": 0.018432632088661194,
+  "div_pred_mean": 0.0203761737793684,
+  "umean": 0.07105105370283127,
+  "wall_frac": 0.08304498269896193,
+  "mesh_L": 0.001161322786018001,
+  "case": "wm_027_R13p9_L115p3_a03p2",
+  "variant": "womersley_leak_dir_only",
+  "seed": 2026,
+  "split": "val"
+}

@@ -1,0 +1,10 @@
+metric,metric_label,split,var_a,var_b,n_cases,mean_a,mean_b,mean_delta,ci95_low,ci95_high,p_bootstrap,p_permutation,better_var
+val/pp_at_0.100,PP@10,test,subend_leak_dir_only,subend_noleak,75,0.031476888888888895,0.004481333333333334,0.02699555555555556,0.018235544444444442,0.03652161111111111,0.0,0.0,subend_leak_dir_only
+val/pp_at_0.050,PP@5,test,subend_leak_dir_only,subend_noleak,75,0.007553777777777778,0.0007586666666666666,0.00679511111111111,0.0043031,0.009604077777777779,0.0,0.0,subend_leak_dir_only
+val/angle_err_he_mean_deg,angle°,test,subend_leak_dir_only,subend_noleak,75,7.050030541803914,60.884438368644794,-53.834407826840874,-57.57903616709143,-50.13630239272668,0.0,0.0,subend_leak_dir_only
+val/ewrmse_he,ewRMSE,test,subend_leak_dir_only,subend_noleak,75,0.3670547091391542,0.45931038739935814,-0.09225567826020412,-0.12849746515282529,-0.05538952511387966,0.0,0.0,subend_leak_dir_only
+clin/dP_mmHg_mae,dP_MAE_mmHg,test,subend_leak_dir_only,subend_noleak,75,9.247515018516117,4.785533922641641,4.461981095874475,2.7324833860561872,6.1000382880694755,0.0,0.0,subend_noleak
+clin/peak_loc_mm_mean,peak_loc_mm,test,subend_leak_dir_only,subend_noleak,75,48.99924483829074,70.72951275295682,-21.730267914666072,-25.329782390859393,-18.135651550134025,0.0,0.0,subend_leak_dir_only
+clin/peak_mag_rel_mean,peak_mag_rel,test,subend_leak_dir_only,subend_noleak,75,3.0028743485361336,0.6790005110597445,2.3238738374763894,1.7611298864110787,2.898330856237095,0.0,0.0,subend_noleak
+clin/wss_mae_Pa_mean,WSS_MAE_Pa,test,subend_leak_dir_only,subend_noleak,75,0.3810779675510194,0.7537078609731462,-0.3726298934221267,-0.41889528993931086,-0.3255463602609105,0.0,0.0,subend_leak_dir_only
+clin/wss_bias_Pa_mean,WSS_bias_Pa,test,subend_leak_dir_only,subend_noleak,75,0.25577032027973073,0.6780137989970131,-0.4222434787172824,-0.4566581823203661,-0.3877358687726988,0.0,0.0,subend_leak_dir_only

@@ -1,0 +1,22 @@
+{
+  "n_nodes": 274329,
+  "n_moving": 189370,
+  "angle_median": 51.28211212158203,
+  "angle_mean": 67.91851806640625,
+  "angle_p90": 147.90911865234375,
+  "spearman_true_mag_radius": 0.5588580644775368,
+  "spearman_pred_mag_radius": 0.05428764040638975,
+  "mag_ratio_median": 1.404990553855896,
+  "mag_ratio_p90": 6.315553665161133,
+  "div_true_median": 1.0881193702516612e-05,
+  "div_true_mean": 0.0003443043678998947,
+  "div_pred_median": 4.4213222281541675e-05,
+  "div_pred_mean": 0.0034643399994820356,
+  "umean": 0.18763655424118042,
+  "wall_frac": 0.13712002741234067,
+  "mesh_L": 0.00017261165080116665,
+  "case": "0234_H_AO_COA_3D_FSI_REST",
+  "variant": "noleak_centerline",
+  "seed": 1337,
+  "split": "val"
+}

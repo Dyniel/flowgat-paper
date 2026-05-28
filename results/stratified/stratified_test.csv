@@ -1,0 +1,161 @@
+variant,stratum,n_cases,n_seeds,metric,metric_label,mean,std
+leak_dir_only,healthy,1,3,val/pp_at_0.100,PP@10,0.1478655184505025,0.009947893069899674
+leak_dir_only,healthy,1,3,val/pp_at_0.050,PP@5,0.050837686689131766,0.01639710721506977
+leak_dir_only,healthy,1,3,val/angle_err_he_mean_deg,angle°,3.6450920076626994,0.5845264798320671
+leak_dir_only,healthy,1,3,val/ewrmse_he,ewRMSE,0.1389437391517292,0.008723739386478581
+leak_dir_only,healthy,1,3,clin/peak_loc_mm_mean,peak_loc_mm,103.02411524454753,40.324497026355104
+leak_dir_only,healthy,1,3,clin/peak_mag_rel_mean,peak_mag_rel,0.42644084493319195,0.009857808764462987
+leak_dir_only,healthy,1,3,clin/wss_mae_Pa_mean,WSS MAE Pa,3.431413412094116,0.056426606307708245
+leak_dir_only,healthy,1,3,clin/wss_r2_mean,WSS R²,-1.5171319643656414,0.06530787810536352
+leak_dir_only,CoA_rigid,2,3,val/pp_at_0.100,PP@10,0.2592599608404677,0.011899035529336518
+leak_dir_only,CoA_rigid,2,3,val/pp_at_0.050,PP@5,0.07537673712268438,0.018156195144398684
+leak_dir_only,CoA_rigid,2,3,val/angle_err_he_mean_deg,angle°,3.1799629170993984,0.40324658906258326
+leak_dir_only,CoA_rigid,2,3,val/ewrmse_he,ewRMSE,0.1499655705499599,0.0035559782433610227
+leak_dir_only,CoA_rigid,2,3,clin/peak_loc_mm_mean,peak_loc_mm,48.499292055765785,26.133696677202643
+leak_dir_only,CoA_rigid,2,3,clin/peak_mag_rel_mean,peak_mag_rel,0.29421575367450714,0.02920981505378983
+leak_dir_only,CoA_rigid,2,3,clin/wss_mae_Pa_mean,WSS MAE Pa,4.123892625172933,0.10664967246458354
+leak_dir_only,CoA_rigid,2,3,clin/wss_r2_mean,WSS R²,-3.4224431912104287,0.19881088739250247
+leak_dir_only,CoA_FSI,2,3,val/pp_at_0.100,PP@10,0.1775323859877933,0.04194458712927285
+leak_dir_only,CoA_FSI,2,3,val/pp_at_0.050,PP@5,0.05230085076560387,0.021967091984074313
+leak_dir_only,CoA_FSI,2,3,val/angle_err_he_mean_deg,angle°,2.8954948911157405,0.060984746646008246
+leak_dir_only,CoA_FSI,2,3,val/ewrmse_he,ewRMSE,0.20673772521650288,0.010102834004458527
+leak_dir_only,CoA_FSI,2,3,clin/peak_loc_mm_mean,peak_loc_mm,35.92877689997355,21.233393258555747
+leak_dir_only,CoA_FSI,2,3,clin/peak_mag_rel_mean,peak_mag_rel,0.8256043493747711,0.00635824692437307
+leak_dir_only,CoA_FSI,2,3,clin/wss_mae_Pa_mean,WSS MAE Pa,24.91073703765869,1.981791202445407
+leak_dir_only,CoA_FSI,2,3,clin/wss_r2_mean,WSS R²,-13.509698867797852,2.3418071383693833
+leak_dir_only,rigid_all,3,3,val/pp_at_0.100,PP@10,0.22212848004381266,0.007345785768394505
+leak_dir_only,rigid_all,3,3,val/pp_at_0.050,PP@5,0.0671970536448335,0.017173182759242085
+leak_dir_only,rigid_all,3,3,val/angle_err_he_mean_deg,angle°,3.3350059472871654,0.2942401766232162
+leak_dir_only,rigid_all,3,3,val/ewrmse_he,ewRMSE,0.14629162675054966,0.0052542928106853615
+leak_dir_only,rigid_all,3,3,clin/peak_loc_mm_mean,peak_loc_mm,66.67423311869304,22.284708151671104
+leak_dir_only,rigid_all,3,3,clin/peak_mag_rel_mean,peak_mag_rel,0.33829078409406876,0.022452785531183767
+leak_dir_only,rigid_all,3,3,clin/wss_mae_Pa_mean,WSS MAE Pa,3.8930662208133278,0.0680916860249428
+leak_dir_only,rigid_all,3,3,clin/wss_r2_mean,WSS R²,-2.787339448928833,0.1406975033781823
+leak_dir_only,all_test,5,3,val/pp_at_0.100,PP@10,0.20429004242140492,0.01237355434485271
+leak_dir_only,all_test,5,3,val/pp_at_0.050,PP@5,0.06123857249314165,0.015939583500436776
+leak_dir_only,all_test,5,3,val/angle_err_he_mean_deg,angle°,3.159201524818595,0.19915238009227543
+leak_dir_only,all_test,5,3,val/ewrmse_he,ewRMSE,0.17047006613693094,0.0016910513020754392
+leak_dir_only,all_test,5,3,clin/peak_loc_mm_mean,peak_loc_mm,54.37605063120524,20.759100358536973
+leak_dir_only,all_test,5,3,clin/peak_mag_rel_mean,peak_mag_rel,0.5332162102063497,0.013620097557987019
+leak_dir_only,all_test,5,3,clin/wss_mae_Pa_mean,WSS MAE Pa,12.300134547551473,0.8329812975545887
+leak_dir_only,all_test,5,3,clin/wss_r2_mean,WSS R²,-7.07628321647644,1.019723558030319
+leak_mag_only,healthy,1,3,val/pp_at_0.100,PP@10,0.0,0.0
+leak_mag_only,healthy,1,3,val/pp_at_0.050,PP@5,0.0,0.0
+leak_mag_only,healthy,1,3,val/angle_err_he_mean_deg,angle°,101.37398142177678,3.108594102598719
+leak_mag_only,healthy,1,3,val/ewrmse_he,ewRMSE,0.5222441632120232,0.01891364065238203
+leak_mag_only,healthy,1,3,clin/peak_loc_mm_mean,peak_loc_mm,73.75161425272624,58.814863706145786
+leak_mag_only,healthy,1,3,clin/peak_mag_rel_mean,peak_mag_rel,0.6404043436050415,0.057524846191383115
+leak_mag_only,healthy,1,3,clin/wss_mae_Pa_mean,WSS MAE Pa,1.963491161664327,0.47097317396254373
+leak_mag_only,healthy,1,3,clin/wss_r2_mean,WSS R²,-0.17106916507085165,0.3597869996113334
+leak_mag_only,CoA_rigid,2,3,val/pp_at_0.100,PP@10,4.334866979375002e-05,6.130427673315418e-05
+leak_mag_only,CoA_rigid,2,3,val/pp_at_0.050,PP@5,8.968690302155177e-06,1.2683643462031903e-05
+leak_mag_only,CoA_rigid,2,3,val/angle_err_he_mean_deg,angle°,50.062723074675574,6.915899726925468
+leak_mag_only,CoA_rigid,2,3,val/ewrmse_he,ewRMSE,0.41927063732679776,0.022510415802013534
+leak_mag_only,CoA_rigid,2,3,clin/peak_loc_mm_mean,peak_loc_mm,77.64551909764607,25.805913150861265
+leak_mag_only,CoA_rigid,2,3,clin/peak_mag_rel_mean,peak_mag_rel,0.5287765910228094,0.09759976729813627
+leak_mag_only,CoA_rigid,2,3,clin/wss_mae_Pa_mean,WSS MAE Pa,2.662798136472702,0.5858903090064215
+leak_mag_only,CoA_rigid,2,3,clin/wss_r2_mean,WSS R²,-0.9727333883444468,1.2803455070098124
+leak_mag_only,CoA_FSI,2,3,val/pp_at_0.100,PP@10,0.0005568781411407649,0.0007875446197903883
+leak_mag_only,CoA_FSI,2,3,val/pp_at_0.050,PP@5,1.7402441910648901e-06,2.4610769368449634e-06
+leak_mag_only,CoA_FSI,2,3,val/angle_err_he_mean_deg,angle°,43.03874462129164,3.4060370994595424
+leak_mag_only,CoA_FSI,2,3,val/ewrmse_he,ewRMSE,0.5607633025890127,0.021228702019347206
+leak_mag_only,CoA_FSI,2,3,clin/peak_loc_mm_mean,peak_loc_mm,48.75178829828898,22.7991573963595
+leak_mag_only,CoA_FSI,2,3,clin/peak_mag_rel_mean,peak_mag_rel,0.8747825423876444,0.017275166852930367
+leak_mag_only,CoA_FSI,2,3,clin/wss_mae_Pa_mean,WSS MAE Pa,19.023391246795654,2.283322199770085
+leak_mag_only,CoA_FSI,2,3,clin/wss_r2_mean,WSS R²,-8.18764885266622,2.43293602653314
+leak_mag_only,rigid_all,3,3,val/pp_at_0.100,PP@10,2.8899113195833345e-05,4.0869517822102794e-05
+leak_mag_only,rigid_all,3,3,val/pp_at_0.050,PP@5,5.979126868103451e-06,8.455762308021269e-06
+leak_mag_only,rigid_all,3,3,val/angle_err_he_mean_deg,angle°,67.16647585704264,4.329354086177387
+leak_mag_only,rigid_all,3,3,val/ewrmse_he,ewRMSE,0.4535951459552063,0.011851614611099513
+leak_mag_only,rigid_all,3,3,clin/peak_loc_mm_mean,peak_loc_mm,76.34755081600613,36.73816409977307
+leak_mag_only,rigid_all,3,3,clin/peak_mag_rel_mean,peak_mag_rel,0.5659858418835534,0.08272883052527925
+leak_mag_only,rigid_all,3,3,clin/wss_mae_Pa_mean,WSS MAE Pa,2.429695811536577,0.5318026823054551
+leak_mag_only,rigid_all,3,3,clin/wss_r2_mean,WSS R²,-0.7055119805865817,0.9671071888578692
+leak_mag_only,all_test,5,3,val/pp_at_0.100,PP@10,0.00024009072437380596,0.00030350087688709587
+leak_mag_only,all_test,5,3,val/pp_at_0.050,PP@5,4.283573797288027e-06,4.659893368075174e-06
+leak_mag_only,all_test,5,3,val/angle_err_he_mean_deg,angle°,57.51538336274225,1.6662659754664988
+leak_mag_only,all_test,5,3,val/ewrmse_he,ewRMSE,0.4964624086087288,0.00930821055899384
+leak_mag_only,all_test,5,3,clin/peak_loc_mm_mean,peak_loc_mm,65.30924580891927,28.210126535546465
+leak_mag_only,all_test,5,3,clin/peak_mag_rel_mean,peak_mag_rel,0.6895045220851898,0.05213237565373966
+leak_mag_only,all_test,5,3,clin/wss_mae_Pa_mean,WSS MAE Pa,9.067173985640208,1.2294419198074755
+leak_mag_only,all_test,5,3,clin/wss_r2_mean,WSS R²,-3.698366729418437,1.551291518081888
+noleak,healthy,1,3,val/pp_at_0.100,PP@10,0.003393537421030423,0.003148906655995959
+noleak,healthy,1,3,val/pp_at_0.050,PP@5,0.00037738988832825194,0.00024023847393522842
+noleak,healthy,1,3,val/angle_err_he_mean_deg,angle°,59.36223528244013,8.528929431243
+noleak,healthy,1,3,val/ewrmse_he,ewRMSE,0.4244614209980951,0.026097857463354513
+noleak,healthy,1,3,clin/peak_loc_mm_mean,peak_loc_mm,36.88943227132162,0.1984332071522826
+noleak,healthy,1,3,clin/peak_mag_rel_mean,peak_mag_rel,1.0150898893674214,0.20572859296314608
+noleak,healthy,1,3,clin/wss_mae_Pa_mean,WSS MAE Pa,4.3193840980529785,0.146130774096495
+noleak,healthy,1,3,clin/wss_r2_mean,WSS R²,-4.996755441029866,0.554072003660545
+noleak,CoA_rigid,2,3,val/pp_at_0.100,PP@10,0.01559625821134777,0.00629631006359594
+noleak,CoA_rigid,2,3,val/pp_at_0.050,PP@5,0.002597847867869164,0.0016760406819962994
+noleak,CoA_rigid,2,3,val/angle_err_he_mean_deg,angle°,41.47749810349118,3.475629143556962
+noleak,CoA_rigid,2,3,val/ewrmse_he,ewRMSE,0.39767382414995905,0.01600333614097315
+noleak,CoA_rigid,2,3,clin/peak_loc_mm_mean,peak_loc_mm,42.69158220291138,29.68235072221884
+noleak,CoA_rigid,2,3,clin/peak_mag_rel_mean,peak_mag_rel,0.8989895234505335,0.1878473519386168
+noleak,CoA_rigid,2,3,clin/wss_mae_Pa_mean,WSS MAE Pa,4.756442626317342,0.08875573396576894
+noleak,CoA_rigid,2,3,clin/wss_r2_mean,WSS R²,-9.475449363390604,1.4492572115542226
+noleak,CoA_FSI,2,3,val/pp_at_0.100,PP@10,0.005446361669878494,0.0008356388631093114
+noleak,CoA_FSI,2,3,val/pp_at_0.050,PP@5,0.0005742805830514138,0.0002782541081913872
+noleak,CoA_FSI,2,3,val/angle_err_he_mean_deg,angle°,41.68271745537084,1.3824839184220834
+noleak,CoA_FSI,2,3,val/ewrmse_he,ewRMSE,0.5574795672689198,0.009167806955423614
+noleak,CoA_FSI,2,3,clin/peak_loc_mm_mean,peak_loc_mm,84.34432983398438,45.88516390886262
+noleak,CoA_FSI,2,3,clin/peak_mag_rel_mean,peak_mag_rel,0.6589440206686655,0.027677668937058118
+noleak,CoA_FSI,2,3,clin/wss_mae_Pa_mean,WSS MAE Pa,27.742207368214924,3.251025877111477
+noleak,CoA_FSI,2,3,clin/wss_r2_mean,WSS R²,-23.212595860163372,4.273605084205921
+noleak,rigid_all,3,3,val/pp_at_0.100,PP@10,0.01152868461457532,0.004464852334616501
+noleak,rigid_all,3,3,val/pp_at_0.050,PP@5,0.0018576952080221934,0.0011361180365740552
+noleak,rigid_all,3,3,val/angle_err_he_mean_deg,angle°,47.43907716314084,0.8177058495219593
+noleak,rigid_all,3,3,val/ewrmse_he,ewRMSE,0.40660302309933777,0.0029180042192271964
+noleak,rigid_all,3,3,clin/peak_loc_mm_mean,peak_loc_mm,40.75753222571479,19.768303814372953
+noleak,rigid_all,3,3,clin/peak_mag_rel_mean,peak_mag_rel,0.9376896454228295,0.18451028680915332
+noleak,rigid_all,3,3,clin/wss_mae_Pa_mean,WSS MAE Pa,4.610756450229221,0.05443940001883929
+noleak,rigid_all,3,3,clin/wss_r2_mean,WSS R²,-7.982551389270359,0.8376934079810617
+noleak,all_test,5,3,val/pp_at_0.100,PP@10,0.00909575543669659,0.0025477520164494615
+noleak,all_test,5,3,val/pp_at_0.050,PP@5,0.0013443293580338814,0.0005823090638518347
+noleak,all_test,5,3,val/angle_err_he_mean_deg,angle°,45.136533280032836,1.0116379131530213
+noleak,all_test,5,3,val/ewrmse_he,ewRMSE,0.4669536407671706,0.0028090702825535976
+noleak,all_test,5,3,clin/peak_loc_mm_mean,peak_loc_mm,58.19225126902262,12.806540845060864
+noleak,all_test,5,3,clin/peak_mag_rel_mean,peak_mag_rel,0.8261913955211639,0.12066048779026166
+noleak,all_test,5,3,clin/wss_mae_Pa_mean,WSS MAE Pa,13.863336817423502,1.316620720491448
+noleak,all_test,5,3,clin/wss_r2_mean,WSS R²,-14.074569177627561,2.2054789077744084
+withleak,healthy,1,3,val/pp_at_0.100,PP@10,0.18544998543928778,0.03942073794593782
+withleak,healthy,1,3,val/pp_at_0.050,PP@5,0.050920890758999415,0.016237471740189614
+withleak,healthy,1,3,val/angle_err_he_mean_deg,angle°,4.281348312186695,0.4549305598920522
+withleak,healthy,1,3,val/ewrmse_he,ewRMSE,0.1399990840615998,0.013365168512251994
+withleak,healthy,1,3,clin/peak_loc_mm_mean,peak_loc_mm,75.58489100138347,17.82475517084773
+withleak,healthy,1,3,clin/peak_mag_rel_mean,peak_mag_rel,0.4620129664738973,0.01317501213356905
+withleak,healthy,1,3,clin/wss_mae_Pa_mean,WSS MAE Pa,4.069761832555135,0.19305997211991632
+withleak,healthy,1,3,clin/wss_r2_mean,WSS R²,-2.5157806078592935,0.29070314645929884
+withleak,CoA_rigid,2,3,val/pp_at_0.100,PP@10,0.23058131058629452,0.04223815896290487
+withleak,CoA_rigid,2,3,val/pp_at_0.050,PP@5,0.06410885889355732,0.02354710892393703
+withleak,CoA_rigid,2,3,val/angle_err_he_mean_deg,angle°,3.9404732447968542,0.21820466805613078
+withleak,CoA_rigid,2,3,val/ewrmse_he,ewRMSE,0.14233141482797151,0.0024987074446497304
+withleak,CoA_rigid,2,3,clin/peak_loc_mm_mean,peak_loc_mm,62.25141906738281,3.450884358061899
+withleak,CoA_rigid,2,3,clin/peak_mag_rel_mean,peak_mag_rel,0.3027747372786204,0.01599707866819632
+withleak,CoA_rigid,2,3,clin/wss_mae_Pa_mean,WSS MAE Pa,5.108292818069458,0.20294427438931284
+withleak,CoA_rigid,2,3,clin/wss_r2_mean,WSS R²,-5.602575977643331,0.3134971352609355
+withleak,CoA_FSI,2,3,val/pp_at_0.100,PP@10,0.16479998758712602,0.03914736774448573
+withleak,CoA_FSI,2,3,val/pp_at_0.050,PP@5,0.030850446371043765,0.013508885894466824
+withleak,CoA_FSI,2,3,val/angle_err_he_mean_deg,angle°,3.564971137503285,0.5310328313933581
+withleak,CoA_FSI,2,3,val/ewrmse_he,ewRMSE,0.22055264034658154,0.02169245105533359
+withleak,CoA_FSI,2,3,clin/peak_loc_mm_mean,peak_loc_mm,18.039904356002808,3.932426361489859
+withleak,CoA_FSI,2,3,clin/peak_mag_rel_mean,peak_mag_rel,0.8370599945386251,0.00766256522667506
+withleak,CoA_FSI,2,3,clin/wss_mae_Pa_mean,WSS MAE Pa,28.666953086853027,0.7055662547148851
+withleak,CoA_FSI,2,3,clin/wss_r2_mean,WSS R²,-17.450044949849445,0.74349449923139
+withleak,rigid_all,3,3,val/pp_at_0.100,PP@10,0.21553753553729227,0.015494675892536704
+withleak,rigid_all,3,3,val/pp_at_0.050,PP@5,0.05971286951537135,0.017147690875655475
+withleak,rigid_all,3,3,val/angle_err_he_mean_deg,angle°,4.054098267260135,0.13902695869987253
+withleak,rigid_all,3,3,val/ewrmse_he,ewRMSE,0.14155397123918095,0.006091962448796153
+withleak,rigid_all,3,3,clin/peak_loc_mm_mean,peak_loc_mm,66.6959097120497,3.6643239065897006
+withleak,rigid_all,3,3,clin/peak_mag_rel_mean,peak_mag_rel,0.3558541470103794,0.01503668678560779
+withleak,rigid_all,3,3,clin/wss_mae_Pa_mean,WSS MAE Pa,4.762115822898018,0.1891564266156321
+withleak,rigid_all,3,3,clin/wss_r2_mean,WSS R²,-4.573644187715318,0.25345290506599
+withleak,all_test,5,3,val/pp_at_0.100,PP@10,0.19524251635722578,0.007278041071785511
+withleak,all_test,5,3,val/pp_at_0.050,PP@5,0.04816790025764032,0.006844813177262749
+withleak,all_test,5,3,val/angle_err_he_mean_deg,angle°,3.858447415357395,0.28123665659153163
+withleak,all_test,5,3,val/ewrmse_he,ewRMSE,0.1731534388821412,0.011971652032491755
+withleak,all_test,5,3,clin/peak_loc_mm_mean,peak_loc_mm,47.233507569630945,3.7003799450283785
+withleak,all_test,5,3,clin/peak_mag_rel_mean,peak_mag_rel,0.5483364860216776,0.009668234623168634
+withleak,all_test,5,3,clin/wss_mae_Pa_mean,WSS MAE Pa,14.324050728480023,0.3918938322368986
+withleak,all_test,5,3,clin/wss_r2_mean,WSS R²,-9.724204492568969,0.42989452026786834
