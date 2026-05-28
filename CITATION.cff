@@ -29,7 +29,7 @@ abstract: >-
   pipeline.
 license: MIT
 type: software
-repository-code: "https://github.com/<TBD>/flowgat-paper"
+repository-code: "https://github.com/Dyniel/flowgat-paper"
 # Zenodo DOI to be inserted after deposit:
 # doi: 10.5281/zenodo.XXXXXXX
 keywords:
