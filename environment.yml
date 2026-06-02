@@ -23,6 +23,7 @@ dependencies:
   - matplotlib>=3.8
   - pyyaml>=6.0
   - tqdm>=4.66
+  - pytest>=8
   - pip:
       - torch-geometric>=2.5
       - pyvista>=0.43

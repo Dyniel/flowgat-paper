@@ -55,7 +55,7 @@ cat > "$STAGE/README.md" <<EOF
 # flowgat_paper Zenodo deposit (${DATE})
 
 This is the heavy-artefacts companion to the GitHub repository
-[<TBD URL>](https://github.com/<TBD>/flowgat-paper).
+[Dyniel/flowgat-paper](https://github.com/Dyniel/flowgat-paper).
 
 Contents:
 
@@ -68,9 +68,9 @@ Contents:
 To consume:
 
 \`\`\`bash
-git clone https://github.com/<TBD>/flowgat-paper.git
-cd flowgat-paper/release/
-unzip ../../flowgat_paper_zenodo_${DATE}.zip -d ../
+git clone https://github.com/Dyniel/flowgat-paper.git
+cd flowgat-paper
+unzip ../flowgat_paper_zenodo_${DATE}.zip -d results/
 # Now results/checkpoints/ and results/predictions/ are in place.
 # Re-run the post-training diagnostics:
 bash jobs/SUBMIT_E7_FOLLOWUP.sh
