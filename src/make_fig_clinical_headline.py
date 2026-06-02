@@ -81,11 +81,35 @@ VARIANT_COLORS = {
     "noleak":    "#d62728",
 }
 
+DEFAULT_SEEDS = (1337, 2026, 777)
 
-def load_metric(per_seed_dir: Path, variant: str, metric: str, split: str = "test") -> Optional[List[float]]:
+
+def parse_seed(path: Path) -> Optional[int]:
+    stem = path.stem
+    if "_seed" not in stem:
+        return None
+    tail = stem.rsplit("_seed", 1)[1]
+    tail = tail.replace("_aggregate", "")
+    try:
+        return int(tail)
+    except ValueError:
+        return None
+
+
+def load_metric(
+    per_seed_dir: Path,
+    variant: str,
+    metric: str,
+    split: str = "test",
+    seeds: Optional[Sequence[int]] = DEFAULT_SEEDS,
+) -> Optional[List[float]]:
     pattern = f"{variant}_{split}_seed*_aggregate.json"
+    allowed = set(seeds) if seeds is not None else None
     values: List[float] = []
     for f in sorted(per_seed_dir.glob(pattern)):
+        seed = parse_seed(f)
+        if allowed is not None and seed not in allowed:
+            continue
         try:
             with open(f) as fh:
                 d = json.load(fh)
@@ -104,7 +128,7 @@ def load_metric(per_seed_dir: Path, variant: str, metric: str, split: str = "tes
     return values or None
 
 
-def build_table(per_seed_dir: Path) -> Dict:
+def build_table(per_seed_dir: Path, seeds: Optional[Sequence[int]] = DEFAULT_SEEDS) -> Dict:
     out: Dict = {}
     for domain_label, _, variants in DOMAINS:
         out[domain_label] = {}
@@ -112,7 +136,7 @@ def build_table(per_seed_dir: Path) -> Dict:
             short = VARIANT_SHORT.get(variant, variant)
             out[domain_label][short] = {}
             for _, metric, _ in PANELS:
-                vals = load_metric(per_seed_dir, variant, metric, split="test")
+                vals = load_metric(per_seed_dir, variant, metric, split="test", seeds=seeds)
                 if vals is None:
                     out[domain_label][short][metric] = (float("nan"), float("nan"), 0)
                 else:
@@ -139,13 +163,13 @@ def write_values_csv(table: Dict, out_csv: Path) -> None:
                 })
     out_csv.parent.mkdir(parents=True, exist_ok=True)
     with open(out_csv, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()), lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
     print(f"[fig-clinical] wrote {out_csv} ({len(rows)} rows)")
 
 
-def plot(table: Dict, out_dir: Path) -> None:
+def plot(table: Dict, out_dir: Path, seed_label: str) -> None:
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -187,7 +211,7 @@ def plot(table: Dict, out_dir: Path) -> None:
                bbox_to_anchor=(0.5, 1.02), fontsize=10)
     fig.suptitle(
         "Clinical-quantity headline across four flow domains "
-        "(test split, 3 seeds; error bars = seed-to-seed std)",
+        f"(test split, {seed_label}; error bars = seed-to-seed std)",
         y=1.10, fontsize=11,
     )
     fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.95))
@@ -203,13 +227,27 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--per_seed_dir", required=True)
     ap.add_argument("--out_dir", required=True)
+    ap.add_argument(
+        "--seeds",
+        default=",".join(str(s) for s in DEFAULT_SEEDS),
+        help=(
+            "Comma-separated seeds to include, or 'all'. The paper headline "
+            "uses the default three seeds: 1337,2026,777."
+        ),
+    )
     args = ap.parse_args()
 
     per_seed_dir = Path(args.per_seed_dir)
     out_dir = Path(args.out_dir)
-    table = build_table(per_seed_dir)
+    if args.seeds.lower() == "all":
+        seeds = None
+        seed_label = "all available seeds"
+    else:
+        seeds = tuple(int(x.strip()) for x in args.seeds.split(",") if x.strip())
+        seed_label = f"{len(seeds)} seeds ({','.join(str(s) for s in seeds)})"
+    table = build_table(per_seed_dir, seeds=seeds)
     write_values_csv(table, out_dir / "fig_clinical_headline_values.csv")
-    plot(table, out_dir)
+    plot(table, out_dir, seed_label=seed_label)
     print("[fig-clinical] done")
 
 

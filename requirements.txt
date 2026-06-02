@@ -1,4 +1,6 @@
-# Minimal pip requirements (frozen versions match conda env py312)
+# Minimal pip requirements (frozen versions match conda env py312).
+# The extra index is required for the CUDA 11.8 PyTorch wheel below.
+--extra-index-url https://download.pytorch.org/whl/cu118
 torch==2.7.1+cu118
 torch-geometric>=2.5
 numpy>=1.26
@@ -8,3 +10,4 @@ matplotlib>=3.8
 pyyaml>=6.0
 tqdm>=4.66
 wandb>=0.16
+pytest>=8

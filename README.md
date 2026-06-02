@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Submission: Scientific Reports](https://img.shields.io/badge/submission-Scientific%20Reports-blue.svg)](paper/main.tex)
 [![DOI: pending](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](#citation)
+[![Reproducibility checks](https://github.com/Dyniel/flowgat-paper/actions/workflows/reproducibility.yml/badge.svg)](https://github.com/Dyniel/flowgat-paper/actions/workflows/reproducibility.yml)
 
 This repository accompanies a *Scientific Reports* submission that audits
 graph neural network (GNN) surrogates for cardiovascular blood flow by
@@ -27,12 +28,12 @@ localisation — and never on pressure drop alone.
 
 ## TL;DR
 
-| Metric (test split, mean over 3 seeds) | VMR (n=5) | Womersley (n=6) | Cosserat (n=36) | U-bend (n=75 frames) |
+| Metric (test split, mean over seeds 1337/2026/777) | VMR (n=5) | Womersley (n=6) | Cosserat (n=36) | U-bend (n=75 frames) |
 |---|---:|---:|---:|---:|
-| Angular error (withleak / noleak) | 4.0° / 44.5° | 17.4° / 69.0° | 1.9° / 76.4° | 5.7° / 60.9° |
-| WSS MAE [Pa] (withleak / noleak) | 13.5 / 15.7 | 0.06 / 0.04 | 0.50 / 0.80 | **0.23 / 0.75** |
-| Peak loc. MAE [mm] (withleak / noleak) | 44.4 / 51.7 | – | – | **34.5 / 70.7** |
-| dP MAE [mmHg] (withleak / noleak) | 22.6 / 22.3 | 0.20 / 0.19 | 2.52 / 3.14 | 8.34 / **4.79**\* |
+| Angular error (withleak / noleak) | 3.9° / 45.7° | 17.4° / 69.0° | 1.9° / 76.4° | 7.1° / 60.9° |
+| WSS MAE [Pa] (withleak / noleak) | 14.3 / 13.9 | 0.06 / 0.04 | 0.50 / 0.80 | **0.23 / 0.75** |
+| Peak loc. MAE [mm] (withleak / noleak) | 47.2 / 58.2 | – | – | **34.5 / 70.7** |
+| dP MAE [mmHg] (withleak / noleak) | 22.69 / 22.59 | 0.20 / 0.19 | 2.52 / 3.14 | 8.34 / **4.79**\* |
 
 \* The U-bend dP inversion (noleak "wins" by 3.55 mmHg, 95% CI [1.41, 5.57])
 is the headline example of the magnitude-collapse failure mode that the
@@ -45,6 +46,18 @@ The full clinical-headline panel is at
 the pressure-drop scatter that exposes the magnitude collapse is at
 [`results/figures/subend_dp_scatter.pdf`](results/figures/subend_dp_scatter.pdf).
 
+## Reviewer quick start
+
+```bash
+python scripts/verify_release.py
+make figures
+```
+
+The full reproducibility protocol is in
+[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md), data and artefact access
+is in [`docs/DATA_ACCESS.md`](docs/DATA_ACCESS.md), and the claim-to-file map
+is in [`docs/RESULTS_INDEX.md`](docs/RESULTS_INDEX.md).
+
 ## Repository layout
 
 ```
@@ -52,18 +65,23 @@ the pressure-drop scatter that exposes the magnitude collapse is at
 ├── paper/                  Manuscript sources (main.tex, refs.bib, cover_letter.tex)
 ├── src/                    All Python — model, training, diagnostics, figure generators
 ├── jobs/                   Slurm launchers (1..34 + submit wrappers)
-├── configs/                YAML configs (20 files: 4 variants × 5 datasets)
+├── configs/                YAML configs across domains, variants, and controls
 ├── results/                Text-only diagnostics, CSVs, JSONs, figures
 │   ├── manifest.json       SHA-256 of every NPZ shard used in the paper
-│   ├── per_seed/           96 per-(variant, seed, split) aggregate JSON + CSV
+│   ├── per_seed/           Per-(variant, seed, split) aggregate JSON + CSV
 │   ├── diagnostics/        Cosserat / sUbend / mesh-refinement diagnostics
 │   ├── bootstrap/          Paired-bootstrap CIs (8 sUbend contrasts + 4 VMR)
 │   ├── stratified/         Per-pathology VMR breakdown
 │   └── figures/            All publication figures (PDF + PNG)
 ├── docs/
+│   ├── REPRODUCIBILITY.md  Four-level reviewer protocol
+│   ├── DATA_ACCESS.md      GitHub vs Zenodo vs source-data policy
+│   ├── RESULTS_INDEX.md    Claim-to-file map for the released results
 │   ├── STRATEGY_SR.md      Project narrative + decision log (D1–D8)
 │   └── archive/            CP-version strategy snapshot (frozen 2026-05-19)
 ├── environment.yml         Conda env spec
+├── pyproject.toml          Lightweight install metadata + test config
+├── Makefile                Shortcuts for verify / figures / Slurm stages
 ├── requirements.txt        pip lockfile cross-check
 ├── LICENSE                 MIT
 ├── CITATION.cff            Zenodo-compatible citation
@@ -83,18 +101,10 @@ This is the cheapest re-run. Everything you need is in this repo.
 conda env create -f environment.yml
 conda activate flowgat-paper
 
-# Regenerate the clinical-headline figure (proposed Fig 1):
-python src/make_fig_clinical_headline.py \
-    --per_seed_dir results/per_seed \
-    --out_dir      results/figures
+python scripts/verify_release.py
 
-# Regenerate the U-bend dP-scatter diagnostic from released prediction NPZs
-# (skip if you don't want to download the Zenodo deposit — the CSV +
-# Markdown report are already in results/diagnostics/subend/):
-python src/subend_dp_investigation.py \
-    --predictions_root <path-to-Zenodo-predictions> \
-    --out_dir          results/diagnostics/subend \
-    --figures_dir      results/figures
+# Regenerate the clinical-headline figure (proposed Fig 1):
+make figures
 ```
 
 ### Level 2 — re-run the diagnostics from released predictions (≈ 30 min, no GPU)
@@ -104,7 +114,7 @@ Requires the Zenodo deposit (DOI: pending; ≈ 8 GB; `predictions/` and
 post-training diagnostics:
 
 ```bash
-bash jobs/SUBMIT_E7_FOLLOWUP.sh   # jobs 25 + 26 + 27 + 28 in parallel
+make level2-diagnostics
 ```
 
 ### Level 3 — re-evaluate from released checkpoints (≈ 1 hour, 1 GPU)
@@ -115,14 +125,13 @@ You also need the source NPZ datasets. The build recipe is in
 `data/npz_<variant>/`, run:
 
 ```bash
-sbatch jobs/02_eval_all.sh   # re-evaluates every (variant, seed) ckpt
-sbatch jobs/04_dump_predictions.sh
+make level3-eval
 ```
 
 ### Level 4 — full re-training from scratch (≈ 200 GPU-hours)
 
 ```bash
-bash jobs/SUBMIT_ALL_SR.sh   # builds NPZs, trains all 48 models, aggregates
+make level4-train
 ```
 
 ## Citation

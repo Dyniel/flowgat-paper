@@ -1,0 +1,36 @@
+name: Reproducibility checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  release-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install lightweight analysis dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy pandas matplotlib pyyaml pytest
+
+      - name: Verify release contract
+        run: python scripts/verify_release.py
+
+      - name: Re-render headline figure from released CSV/JSON tables
+        run: |
+          python src/make_fig_clinical_headline.py \
+            --per_seed_dir results/per_seed \
+            --out_dir /tmp/flowgat-paper-figures
+          test -s /tmp/flowgat-paper-figures/fig_clinical_headline.pdf
+          test -s /tmp/flowgat-paper-figures/fig_clinical_headline.png
+
+      - name: Run tests
+        run: python -m pytest

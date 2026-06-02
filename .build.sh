@@ -16,8 +16,10 @@
 #   - env files, docs/, STRATEGY, PUBLICATION_MANIFEST
 #
 # What it does NOT touch in release/:
-#   - .git/, .gitignore, README.md, LICENSE, CITATION.cff, environment.yml,
-#     environment.lock.yml, .build.sh  (these are repo-native, not derived)
+#   - .git/, .github/, .gitignore, README.md, LICENSE, CITATION.cff,
+#     environment.yml, environment.lock.yml, requirements.txt,
+#     pyproject.toml, Makefile, scripts/, tests/, .build.sh
+#     (these are repo-native, not derived)
 # ---------------------------------------------------------------------------
 
 set -euo pipefail

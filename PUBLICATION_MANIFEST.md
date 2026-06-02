@@ -1,12 +1,15 @@
 # Publication manifest — what goes where
 
-**Date:** 2026-05-28
+**Date:** 2026-06-02
 **Target submission:** *Scientific Reports*
-**Repo size budget on GitHub:** ≤ 150 MB (well under 1 GB hard limit). Zenodo for the heavy data + checkpoints + predictions.
+**Reproducibility target:** Nature Communications / Nature Portfolio reviewer-ready release.
+**Repo size budget on GitHub:** ≤ 150 MB tracked payload (well under the 1 GB hard limit). Zenodo for the heavy data + checkpoints + predictions.
 
 ---
 
-## A. GitHub repository (`release/`, ≈ 38 MB)
+## A. GitHub repository (`release/`, reviewer-facing public repo)
+
+URL: https://github.com/Dyniel/flowgat-paper
 
 Everything needed for a reader to (a) read the paper, (b) audit the code,
 (c) re-run the figure generation against released artefacts, and
@@ -18,6 +21,11 @@ Everything needed for a reader to (a) read the paper, (b) audit the code,
 | `LICENSE` | (new) | — | MIT |
 | `CITATION.cff` | (new) | — | Zenodo-compatible citation block |
 | `.gitignore` | (new) | — | Excludes NPZs, checkpoints, predictions, logs, wandb, env caches |
+| `.github/workflows/reproducibility.yml` | (new) | — | Lightweight CI: verifies release contract and re-renders headline figure |
+| `Makefile` | (new) | — | One-command shortcuts for verify, figures, diagnostics, eval, train, Zenodo pack |
+| `pyproject.toml` | (new) | — | Install metadata, lightweight dependencies, pytest config |
+| `scripts/verify_release.py` | (new) | — | Standard-library release-integrity checker |
+| `tests/test_release_integrity.py` | (new) | — | Pytest wrapper around the release-integrity checker |
 | `environment.yml` | `env/environment.yml` | 4 KB | Conda env spec |
 | `requirements.txt` | `env/requirements.txt` | 1 KB | pip lockfile cross-check |
 | `paper/main.tex` | `paper/main.tex` | 88 KB | SR-reframe manuscript (1679 lines) |
@@ -33,11 +41,15 @@ Everything needed for a reader to (a) read the paper, (b) audit the code,
 | `results/bootstrap/` | `results/bootstrap/` | 74 KB | Paired bootstrap CSVs + MDs |
 | `results/stratified/` | `results/stratified/` | 23 KB | Per-pathology VMR breakdown |
 | `results/figures/` | `results/figures/` | 32 MB | All publication figures (PDF + PNG) |
+| `docs/REPRODUCIBILITY.md` | (new) | — | Four-level reviewer reproduction protocol |
+| `docs/DATA_ACCESS.md` | (new) | — | GitHub vs Zenodo vs source-data policy |
+| `docs/RESULTS_INDEX.md` | (new) | — | Claim-to-file map for released results |
 | `docs/STRATEGY_SR.md` | `STRATEGY_SR.md` | 16 KB | Project narrative + decisions D1–D8 |
 | `docs/archive/STRATEGY_CP_archived_20260519.md` | `docs/archive/` | 12 KB | CP-version archive |
 | `PUBLICATION_MANIFEST.md` | (this file) | — | Self-describing |
 
-**Total ≈ 38 MB** — well within standard GitHub repo expectations.
+**Total tracked payload remains below 150 MB** — large datasets,
+checkpoints, prediction dumps, logs, and W&B telemetry stay outside git.
 
 ---
 
@@ -99,8 +111,8 @@ overwrites `release/` without touching source. See that script.
 
 1. Visit zenodo.org → "New upload".
 2. Set creators, title (match `main.tex`), keywords, version, license = CC-BY-4.0 (data) / MIT (code-only deposit if separate).
-3. Upload `release_zenodo_<DATE>.zip` (created by hand once `release/` is committed to GitHub).
-4. Reserve DOI, copy into `release/CITATION.cff` `repository:` field, commit, push, then publish on Zenodo.
+3. Upload `flowgat_paper_zenodo_<DATE>.zip` created by `make zenodo-pack`.
+4. Reserve DOI, copy it into `CITATION.cff`, `README.md`, and this manifest, commit, push, then publish on Zenodo.
 
 The order matters: Zenodo DOI → CITATION.cff → GitHub release tag → Zenodo
 "link to GitHub release" (auto-fills version metadata).

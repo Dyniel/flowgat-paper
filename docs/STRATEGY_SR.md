@@ -1,5 +1,11 @@
 # Strategia SR-reframe — Scientific Reports submission
 
+> Historical development note. This file records internal project decisions
+> during the Scientific Reports reframing. It is not the reviewer-facing
+> reproduction protocol; use `docs/REPRODUCIBILITY.md`,
+> `docs/DATA_ACCESS.md`, and `docs/RESULTS_INDEX.md` in the public release
+> for the current instructions.
+
 **Status: 2026-05-24, post Phase E8 (SAGE × {Cosserat, sUbend} + FlowGAT × Cosserat no-BC — all 3 stages DONE)**
 
 **Update 2026-05-24 — Phase E8 closed. Pattern L1 replikuje się 1:1 na (FlowGAT/SAGE) × (with-BC/no-BC) × (Cosserat/sUbend); Limitations skraca się o dwa bullety ("architecture-specific", "BC-head-specific"). Pełny snapshot: [results/phase_E8_package/README.md](results/phase_E8_package/README.md). Patrz [§Phase E8 — SAGE + no-BC follow-up (NEW)](#phase-e8--sage--no-bc-follow-up-new) niżej.**
