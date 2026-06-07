@@ -2,10 +2,6 @@
 
 **A four-variant clinical-quantity audit of graph neural network surrogates for vascular blood flow.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Submission: Scientific Reports](https://img.shields.io/badge/submission-Scientific%20Reports-blue.svg)](paper/main.tex)
-[![DOI: pending](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](#citation)
-[![Reproducibility checks](https://github.com/Dyniel/flowgat-paper/actions/workflows/reproducibility.yml/badge.svg)](https://github.com/Dyniel/flowgat-paper/actions/workflows/reproducibility.yml)
 
 This repository accompanies a *Scientific Reports* submission that audits
 graph neural network (GNN) surrogates for cardiovascular blood flow by
